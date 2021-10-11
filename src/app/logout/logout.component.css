@@ -1,0 +1,45 @@
+h2 {
+  text-transform: uppercase;
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border: 5px solid #a94442; /* red */
+}
+
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border: 3px solid #555;
+}
+
+button {
+  background-color: #F68B3E;
+  width: 230px;
+  border: none;
+  color: white;
+  padding: 0px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-family: "Oswald";
+  font-size: 24px;
+}
+
+.blue {
+    background-color: #3366e6;
+}
+
+button a {
+    text-decoration: none;
+    color: white;
+}

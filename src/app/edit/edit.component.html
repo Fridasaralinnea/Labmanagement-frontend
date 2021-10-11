@@ -1,0 +1,45 @@
+<img
+    width="100%"
+    class="flash"
+    alt="Logo"
+    src="assets/img/picture_3.png"
+/>
+
+<div class="pagecontent">
+    <h1>EDIT EQUIPMENT</h1>
+    <div class="login-register">
+        <h2>EDIT</h2>
+
+        <div class="form">
+            <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="name">Equipment name:</label>
+                    <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" [(ngModel)]="this.equipment.name" />
+                    <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                        <div *ngIf="f.name.errors.required">Eqipment is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="amount">Amount:</label>
+                    <input type="amount" formControlName="amount" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.amount.errors }" [(ngModel)]="this.equipment.amount" />
+                    <div *ngIf="submitted && f.amount.errors" class="invalid-feedback">
+                        <div *ngIf="f.amount.errors.required">Amount is required</div>
+                    </div>
+                </div>
+                <!-- <div class="form-group">
+                    <label for="picture">Picture:</label>
+                    <input type="picture" formControlName="picture" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.picture.errors }" />
+                </div> -->
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                        SAVE
+                    </button>
+                </div>
+                <button type="submit">
+                    <a routerLink="/admin">CANCEL</a>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

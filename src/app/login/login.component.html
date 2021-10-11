@@ -1,0 +1,42 @@
+<img
+    class="flash"
+    width="100%"
+    alt="Logo"
+    src="assets/img/picture_1.jpeg"
+/>
+
+<div class="pagecontent">
+    <h1>WELCOME TO LABMANAGEMENT</h1>
+    <div class="login-register">
+        <h2>LOG IN</h2>
+
+        <div class="form">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Email is required</div>
+                    </div>
+                    <p>( abc@bth.se | abc@student.bth.se )</p>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Password is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                        LOG IN
+                    </button>
+                </div>
+                <p class="orange">
+                    *Dont have an account? <a routerLink="/register">Register here</a>
+                </p>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+
+<h2>Log out</h2>
+
+<div *ngIf="isLoggedIn" class="form">
+    <form (ngSubmit)="onSubmit()">
+        <button type="submit" class="btn btn-primary">
+        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+        LOG OUT
+        </button>
+    </form>
+</div>

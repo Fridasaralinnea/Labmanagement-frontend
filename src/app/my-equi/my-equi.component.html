@@ -1,0 +1,49 @@
+<img
+    width="100%"
+    class="flash"
+    alt="Logo"
+    src="assets/img/picture_5.jpg"
+/>
+
+<div class="pagecontent">
+    <h1>MY EQUIPMENT</h1>
+
+    <div class="headercard">
+        <p>BOOKED EQUIPMENT</p>
+    </div>
+
+    <div *ngFor="let object of this.equipment">
+        <div class="equicard">
+            <div class="equicardthird">
+                <div *ngIf="object.picture; else elseBlock">
+                    <img
+                        width="100%"
+                        class="flash"
+                        alt="Logo"
+                        src="{{ object.picture }}"
+                    />
+                </div>
+                <ng-template #elseBlock>
+                    <img
+                        width="100px"
+                        alt="Logo"
+                        src="assets/img/no_image.png"
+                    />
+                </ng-template>
+            </div>
+            <div class="equicardthird">
+                <p>Name: {{ object.name }}</p>
+                <p>Total amount: {{ object.amount }}</p>
+                <p>Amount available: {{ object.stock }}</p>
+            </div>
+            <div class="equicardthird">
+                <button type="submit">
+                    <a [routerLink]="['/edit']" [queryParams]="{id: object.id}">PICK UP</a>
+                </button>
+                <button type="submit">
+                    <a [routerLink]="['/history']" [queryParams]="{id: object.id}">RETURN</a>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

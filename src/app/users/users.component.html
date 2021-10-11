@@ -1,0 +1,24 @@
+<img
+    width="100%"
+    class="flash"
+    alt="Logo"
+    src="assets/img/picture_4.jpeg"
+/>
+
+<div class="pagecontent">
+    <h1>USERS</h1>
+
+    <div class="headercard">
+        <p>USERS</p>
+    </div>
+    <table>
+        <tr>
+            <th>EMAIL</th>
+            <th>ROLE</th>
+        </tr>
+        <tr *ngFor="let object of this.users">
+            <td>{{ object.email }}</td>
+            <td>{{ object.role }}</td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,56 @@
+<img
+    width="100%"
+    class="flash"
+    alt="Logo"
+    src="assets/img/picture_2.jpeg"
+/>
+
+<div class="pagecontent">
+    <h1>LAB EQUIPMENT</h1>
+
+    <div class="headercard">
+        <p>EQUIPMENT</p>
+        <button type="submit" class="btn btn-primary">
+            <a routerLink="/add">+ADD</a>
+        </button>
+    </div>
+
+    <div *ngFor="let object of this.equipment">
+        <div class="equicard">
+            <div class="equicardthird">
+                <div *ngIf="object.picture; else elseBlock">
+                    <img
+                        width="100%"
+                        class="flash"
+                        alt="Logo"
+                        src="{{ object.picture }}"
+                    />
+                </div>
+                <ng-template #elseBlock>
+                    <img
+                        width="100px"
+                        alt="Logo"
+                        src="assets/img/no_image.png"
+                    />
+                </ng-template>
+            </div>
+            <div class="equicardthird">
+                <p>Name: {{ object.name }}</p>
+                <p>Total amount: {{ object.amount }}</p>
+                <p>Amount available: {{ object.stock }}</p>
+            </div>
+            <div class="equicardthird">
+                <button type="submit">
+                    <a [routerLink]="['/edit']" [queryParams]="{id: object.id}">EDIT</a>
+                </button>
+                <button type="submit">
+                    <a [routerLink]="['/history']" [queryParams]="{id: object.id}">HISTORY</a>
+                </button>
+                <button type="button" (click)="onSubmit(object.id)" class="btn btn-primary">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    DELETE
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

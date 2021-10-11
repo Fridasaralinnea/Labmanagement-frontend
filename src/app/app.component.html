@@ -1,0 +1,47 @@
+
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+    <div class="toolbar2">
+        <img
+            alt="Logo"
+            src="assets/img/bthlogo_svart.png"
+        />
+        <div class="spacer"></div>
+        <nav class="navbar">
+            <a *ngIf="isSuperUser || isAdmin" routerLink="/admin">EQUIPMENT</a>
+            <a *ngIf="isStudent" routerLink="/student">EQUIPMENT</a>
+            <a *ngIf="isStudent" routerLink="/myequi">MY EQUIPMENT</a>
+            <a *ngIf="isSuperUser" routerLink="/users">USERS</a>
+            <a *ngIf="!isLoggedIn" routerLink="/register">REGISTER</a>
+            <a *ngIf="!isLoggedIn" routerLink="/login" routerLinkActive="active">LOG IN</a>
+            <a *ngIf="isLoggedIn" routerLink="/logout">LOG OUT</a>
+        </nav>
+    </div>
+</div>
+
+<div class="content" role="main">
+    <router-outlet></router-outlet>
+</div>
+
+
+<!-- Footer -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-third">
+            &copy; Frida Larsson
+        </div>
+        <div class="footer-third footer-third-border">
+            &copy; Frida Larsson
+        </div>
+        <div class="footer-third">
+            &copy; Frida Larsson
+        </div>
+        <div class="footer-bottom">
+            <img
+                alt="Logo"
+                src="assets/img/bthlogo_vit.png"
+            />
+            <p>Adress: Blekinge Tekniska Högskola, 371 79 Karlskrona<br/>Telefon: 0455 - 38 50 00<br/>E-post: info@bth.se<br/>Ansvarig för sidan: Kommunikationsavdelningen<br/>Sidan senast uppdaterad: 31 januari 2019</p>
+        </div>
+    </div>
+</footer>
