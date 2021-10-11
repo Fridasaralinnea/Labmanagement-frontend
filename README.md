@@ -1,3 +1,7 @@
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Fridasaralinnea/Labmanagement-frontend/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/Fridasaralinnea/Labmanagement-frontend/?branch=main)
+[![Code Coverage](https://scrutinizer-ci.com/g/Fridasaralinnea/Labmanagement-frontend/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/Fridasaralinnea/Labmanagement-frontend/?branch=main)
+[![Build Status](https://scrutinizer-ci.com/g/Fridasaralinnea/Labmanagement-frontend/badges/build.png?b=main)](https://scrutinizer-ci.com/g/Fridasaralinnea/Labmanagement-frontend/build-status/main)
+
 # LabManagementFrontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.0.

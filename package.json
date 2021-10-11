@@ -19,10 +19,15 @@
     "@angular/platform-browser": "~10.1.0",
     "@angular/platform-browser-dynamic": "~10.1.0",
     "@angular/router": "~10.1.0",
+    "geckodriver": "^2.0.4",
+    "mocha": "^9.1.2",
+    "moment": "^2.29.1",
     "rxjs": "~6.6.0",
+    "selenium-webdriver": "^4.0.0-rc-2",
     "tslib": "^2.0.0",
-    "zone.js": "~0.10.2",
-    "moment": "^2.29.1"
+    "webpack": "^5.58.1",
+    "webpack-cli": "^4.9.0",
+    "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1001.0",
