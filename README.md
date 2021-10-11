@@ -1,3 +1,4 @@
+[![Build Status](https://app.travis-ci.com/Fridasaralinnea/Labmanagement-frontend.svg?branch=main)](https://app.travis-ci.com/Fridasaralinnea/Labmanagement-frontend)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Fridasaralinnea/Labmanagement-frontend/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/Fridasaralinnea/Labmanagement-frontend/?branch=main)
 [![Code Coverage](https://scrutinizer-ci.com/g/Fridasaralinnea/Labmanagement-frontend/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/Fridasaralinnea/Labmanagement-frontend/?branch=main)
 [![Build Status](https://scrutinizer-ci.com/g/Fridasaralinnea/Labmanagement-frontend/badges/build.png?b=main)](https://scrutinizer-ci.com/g/Fridasaralinnea/Labmanagement-frontend/build-status/main)
