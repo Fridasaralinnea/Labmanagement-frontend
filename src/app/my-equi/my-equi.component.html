@@ -12,7 +12,7 @@
         <p>BOOKED EQUIPMENT</p>
     </div>
 
-    <div *ngFor="let object of this.equipment">
+    <div *ngFor="let object of this.bookings">
         <div class="equicard">
             <div class="equicardthird">
                 <div *ngIf="object.picture; else elseBlock">
@@ -32,16 +32,17 @@
                 </ng-template>
             </div>
             <div class="equicardthird">
-                <p>Name: {{ object.name }}</p>
-                <p>Total amount: {{ object.amount }}</p>
-                <p>Amount available: {{ object.stock }}</p>
+                <p>Equipment ID: {{ object.equipment_id }}</p>
+                <p>Equipment name: {{ object.equipment_name }}</p>
+                <p>Rent Date: {{ object.rent_date }}</p>
+                <p>Status: {{ object.status }}</p>
             </div>
             <div class="equicardthird">
-                <button type="submit">
-                    <a [routerLink]="['/edit']" [queryParams]="{id: object.id}">PICK UP</a>
+                <button *ngIf="dateToday==object.rent_date && object.status=='booked'" (click)="pickupEquipment(object.equipment_id, object.id)">
+                    <a>PICK UP</a>
                 </button>
-                <button type="submit">
-                    <a [routerLink]="['/history']" [queryParams]="{id: object.id}">RETURN</a>
+                <button *ngIf="object.status=='pickedup'" (click)="this.returnEquipment(object.equipment_id, object.id)">
+                    <a>RETURN</a>
                 </button>
             </div>
         </div>

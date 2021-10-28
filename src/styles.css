@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.modal-dialog {
+    border: 1px solid #555;
+    margin: 4px;
+    width: 600px;
+    padding: 5px;
+    z-index: 1000;
+    position: absolute;
+    left: 50%;
+    top: 70%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+}
+
+*, ::after, ::before {
+    box-sizing: content-box !important;
+}

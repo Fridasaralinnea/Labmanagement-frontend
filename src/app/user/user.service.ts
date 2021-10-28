@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
     providedIn: 'root'
 })
 
-export class UsersService {
+export class UserService {
 
     constructor(
         private router: Router,

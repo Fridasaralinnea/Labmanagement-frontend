@@ -36,6 +36,7 @@ export class EditComponent implements OnInit, OnDestroy {
     loading = false;
     params: any;
     user: string;
+    userRole: any;
     action = "Edited equipment";
 
     ROOT_URL = "http://localhost:8833/edit";
@@ -49,7 +50,14 @@ export class EditComponent implements OnInit, OnDestroy {
         private editService: EditService,
         private historyService: HistoryService,
         private accountService: LoginService) {
+            this.userRole = this.accountService.getUserRole();
+            if (this.userRole != "admin" && this.userRole != "superuser") {
+                alert("Valid user needed to view this page");
+                this.accountService.logout();
+                this.router.navigate(['/login'], { relativeTo: this.route, queryParamsHandling: 'preserve'});
+            }
             this.user = this.accountService.getUserEmail();
+            console.log(this.user);
             this.route.queryParams
                 .subscribe(params => {
                     console.log("params: ", params); // { orderby: "price" }
@@ -114,6 +122,7 @@ export class EditComponent implements OnInit, OnDestroy {
                         },
                         error: error => {
                             console.log("History not added");
+                            console.log(error);
                             alert("History not added");
                             this.loading = false;
                         }

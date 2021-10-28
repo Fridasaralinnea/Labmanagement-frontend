@@ -119,3 +119,48 @@ button a {
     text-decoration: none;
     color: white;
 }
+
+table {
+    border-collapse: collapse;
+    /* margin: 4px; */
+    /* padding: 4px; */
+    width: 800px;
+    color: #555;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+th {
+    background-color: #fff;
+    /* border-radius: 4px; */
+    /* margin: 4px;
+    padding: 4px; */
+    /* color: #555; */
+    /* width: 800px; */
+    /* background-color: #225D86; */
+    /* color: white; */
+    /* border: 1px solid #225D86; */
+    /* font-size: 17px; */
+    /* font-weight: lighter; */
+}
+
+/* .table-responsive {
+    width: 100%;
+    margin-bottom: 15px;
+    overflow-y: hidden;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid #ddd;
+}
+
+.table-responsive {
+    min-height: .01%;
+    overflow-x: auto;
+} */

@@ -24,6 +24,7 @@ export class LoginService {
     login(email: string, password: string) {
         console.log("login with email: ", email, " and password: ", password);
         this.userEmail = email;
+        localStorage.setItem('user_email', email);
         return this.http.post(this.ROOT_URL, {email: email, password: password})
             .pipe(map(res => this.setSession(res)),
             shareReplay());
@@ -41,6 +42,8 @@ export class LoginService {
     logout() {
         localStorage.removeItem('id_token');
         localStorage.removeItem('expires_at');
+        localStorage.removeItem('user_email');
+        localStorage.removeItem('user_role');
         console.log("Succesfully logged out");
         this.userRole = null;
         this.userEmail = null;
@@ -52,12 +55,15 @@ export class LoginService {
     }
 
     public getUserRole() {
-        return this.userRole;
+        const role = localStorage.getItem("user_role");
+        console.log("User role: ", role);
+        return role;
     }
 
     public getUserEmail() {
-        console.log("User email: ", this.userEmail);
-        return this.userEmail;
+        const email = localStorage.getItem("user_email");
+        console.log("User email: ", email);
+        return email;
     }
 
     getExpiration() {

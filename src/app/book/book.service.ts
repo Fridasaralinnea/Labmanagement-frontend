@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
     providedIn: 'root'
 })
 
-export class UsersService {
+export class BookService {
 
     constructor(
         private router: Router,
@@ -17,8 +17,8 @@ export class UsersService {
 
     ROOT_URL = "";
 
-    // register(email, password) {
-    //         console.log("Register new user with email: ", email);
-    //         return this.http.post(this.ROOT_URL, {email: email, password: password});
-    //     }
+    register(email, password) {
+            console.log("Register new user with email: ", email);
+            return this.http.post(this.ROOT_URL, {email: email, password: password});
+        }
 }

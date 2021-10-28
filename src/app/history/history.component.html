@@ -12,10 +12,18 @@
         <p>{{ equipment.name }}</p>
         <p>ID: {{ equipment.id }}</p>
     </div>
-    <div class="headercardhistory">
-        <p>DATE</p>
-        <p>ACTION</p>
-        <p>AMOUNT</p>
-        <p>USER</p>
-    </div>
+    <table class="table">
+        <tr>
+            <th>DATE</th>
+            <th>ACTION</th>
+            <th>AMOUNT</th>
+            <th>USER</th>
+        </tr>
+        <tr *ngFor="let event of history">
+            <td>{{ event.event_date }}</td>
+            <td>{{ event.action }}</td>
+            <td>{{ event.amount }}</td>
+            <td>{{ event.user_email }}</td>
+        </tr>
+    </table>
 </div>

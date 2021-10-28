@@ -17,6 +17,10 @@ td {
     padding: 0.5rem 2rem;
 }
 
+*, ::after, ::before {
+    box-sizing: border-box !important;
+}
+
 .flash {
     position: absolute;
     left: 0;

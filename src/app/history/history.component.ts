@@ -28,6 +28,7 @@ export class HistoryComponent implements OnInit {
     history: any;
     equipment: any;
     params: any;
+    userRole: any;
     // form: any;
 
     ROOT_URL = "http://localhost:8833/history";
@@ -38,7 +39,14 @@ export class HistoryComponent implements OnInit {
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private router: Router,
-        private historyService: HistoryService) {
+        private historyService: HistoryService,
+        private accountService: LoginService) {
+            this.userRole = this.accountService.getUserRole();
+            if (this.userRole != "admin" && this.userRole != "superuser") {
+                alert("Valid user needed to view this page");
+                this.accountService.logout();
+                this.router.navigate(['/login'], { relativeTo: this.route, queryParamsHandling: 'preserve'});
+            }
             this.route.queryParams
                 .subscribe(params => {
                     console.log("params: ", params); // { orderby: "price" }

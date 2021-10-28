@@ -15,10 +15,76 @@
         <tr>
             <th>EMAIL</th>
             <th>ROLE</th>
+            <th></th>
         </tr>
         <tr *ngFor="let object of this.users">
             <td>{{ object.email }}</td>
             <td>{{ object.role }}</td>
+            <td><button mat-button (click)="openDialog(object.email)">Change user role</button></td>
         </tr>
     </table>
+
+    <!-- <ng-template #callAPIDialog>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Change user role for</h4>
+      </div>
+      <div class="modal-body">
+          <form [formGroup]="editForm" (ngSubmit)="onSubmit()" *ngIf="editForm">
+              <div class="form-group row d-flex justify-content-center align-items-center">
+                  <label for="modalRole" class="col-form-label col-sm-2 text-right">Role:</label>
+                  <select formControlName="modalRole">
+                    <option *ngFor="let role of roles" [ngValue]="modalRole">
+                        {{ role.value }}
+                    </option>
+                      <!-- <option value="">Choose modalRole</option>
+                      <option [ngValue]="modalRole">superuser</option>
+                      <option [ngValue]="modalRole">admin</option>
+                      <option [ngValue]="modalRole">student</option>
+                  </select>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">Cancel</span>
+                </button>
+                <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Save</button>
+                <button type="submit" class="btn btn-danger" (click)="onSubmit()">Save</button>
+              </div>
+          </form>
+      </div>
+    </ng-template> -->
 </div>
+
+<ng-template #callAPIDialog>
+    <form [formGroup]="editForm" (ngSubmit)="onSend()">
+        <h4 matDialogTitle>Change user role for {{ modalUser }}</h4>
+        <mat-form-field>
+            <select matInput formControlName="modalRole">
+                <option value="">Choose modalRole</option>
+                <option [ngValue]="">superuser</option>
+                <option [ngValue]="">admin</option>
+                <option [ngValue]="">student</option>
+            </select>
+        </mat-form-field>
+        <mat-dialog-actions align="end">
+            <button mat-button matDialogClose="no">CANCEL</button>
+            <button type="submit" mat-button>SAVE</button>
+        </mat-dialog-actions>
+    </form>
+</ng-template>
+
+<!-- <ng-template #callAPIDialog>
+    <form #userForm="ngForm" (ngSubmit)="onSend(userForm)">
+        <h4 matDialogTitle>Change user role for {{ modalUser }}</h4>
+        <input  matInput type="text" placeholder="Your organization" name="organisationName" ngModel required >
+        <select formControlName="modalRole">
+            <option value="">Choose modalRole</option>
+            <option [ngValue]="modalRole">superuser</option>
+            <option [ngValue]="modalRole">admin</option>
+            <option [ngValue]="modalRole">student</option>
+        </select>
+        <mat-dialog-actions align="end">
+            <button mat-button matDialogClose="no">CANCEL</button>
+            <button type="submit" mat-button>SAVE</button>
+        </mat-dialog-actions>
+    </form>
+</ng-template> -->

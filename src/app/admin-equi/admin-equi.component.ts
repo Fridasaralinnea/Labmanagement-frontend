@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AdminequiService } from './admin-equi.service';
+import { LoginService } from '../login/login.service';
 import { first } from "rxjs/operators";
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -10,7 +11,10 @@ import { Router, ActivatedRoute } from '@angular/router';
     selector: 'app-register',
     templateUrl: './admin-equi.component.html',
     styleUrls: ['./admin-equi.component.css'],
-    providers: [ AdminequiService ]
+    providers: [
+        AdminequiService,
+        LoginService
+    ]
 })
 export class AdminequiComponent implements OnInit {
 
@@ -19,6 +23,7 @@ export class AdminequiComponent implements OnInit {
     loading = false;
     equipment: any;
     data: any;
+    userRole: any;
 
     ROOT_URL = "http://localhost:8833/admin";
     DELETE_URL = "http://localhost:8833/del";
@@ -28,7 +33,14 @@ export class AdminequiComponent implements OnInit {
         private http: HttpClient,
         private route: ActivatedRoute,
         private router: Router,
-        private adminService: AdminequiService) {
+        private adminService: AdminequiService,
+        private accountService: LoginService) {
+            this.userRole = this.accountService.getUserRole();
+            if (this.userRole != "admin" && this.userRole != "superuser") {
+                alert("Valid user needed to view this page");
+                this.accountService.logout();
+                this.router.navigate(['/login'], { relativeTo: this.route, queryParamsHandling: 'preserve'});
+            }
             this.getEquipment();
             // console.log("Equipment: ", this.equipment);
         }

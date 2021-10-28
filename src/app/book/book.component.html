@@ -1,0 +1,33 @@
+<img
+    width="100%"
+    class="flash"
+    alt="Logo"
+    src="assets/img/picture_2.jpeg"
+/>
+
+<div class="pagecontent">
+    <h1>BOOK EQUIPMENT</h1>
+    <div class="login-register">
+        <h2>{{ equipment }}</h2>
+
+        <div class="form">
+            <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+                <mat-form-field apperance="fill">
+                  <mat-label>Choose date</mat-label>
+                  <input matInput [matDatepicker]="picker"
+                       formControlName="bookDate">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">
+                    BOOK
+                    </button>
+                </div>
+                <button type="submit">
+                    <a routerLink="/student">CANCEL</a>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

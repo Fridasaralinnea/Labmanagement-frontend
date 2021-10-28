@@ -13,10 +13,6 @@ h2 {
     font-size: 2.5rem
 }
 
-*, ::after, ::before {
-    box-sizing: border-box !important;
-}
-
 .flash {
     position: absolute;
     left: 0;
@@ -88,11 +84,15 @@ h2 {
 }
 
 .ng-invalid:not(form)  {
-  /* border: 5px solid #a94442; red */
+  /* border: 5px solid #a94442; */
 }
 
 .form-group {
     max-width: 420px;
+}
+
+mat-form-field {
+    color: #fff;
 }
 
 input {
