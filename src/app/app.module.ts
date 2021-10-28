@@ -13,14 +13,15 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatSelectModule } from "@angular/material/select";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import {DemoMaterialModule} from './material-module';
+// import { MaterialModule } from "./material/material.module";
+
 
 // Custom services
 import { RegisterService } from './register/register.service';
 import { LoginService } from './login/login.service';
 import { AdminequiService } from './admin-equi/admin-equi.service';
-// import {DemoMaterialModule} from './material-module';
-// import { MaterialModule } from "./material/material.module";
-
 
 
 // Custom components
@@ -33,26 +34,12 @@ import { EditComponent } from './edit/edit.component';
 import { AddComponent } from './add/add.component';
 import { HistoryComponent } from './history/history.component';
 import { UsersComponent } from './users/users.component';
-import { BookComponent } from './book/book.component';
-import { UserComponent } from './user/user.component';
+// import { BookComponent } from './book/book.component';
 import { MyequiComponent } from './my-equi/my-equi.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { DeleteComponent } from './delete/delete.component';
-
 
 
 const appRoutes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full'},
-    // { path: 'reports', component: ReportComponent, pathMatch: 'prefix' },
-    // { path: 'reports/week', component: ReportComponent, pathMatch: 'full' },
-    // { path: 'reports/week/1', component: ReportComponent, pathMatch: 'full' },
-    // { path: 'reports/week/2', component: ReportComponent, pathMatch: 'full' },
-    // { path: 'reports/week/3', component: ReportComponent, pathMatch: 'full' },
-    // { path: 'reports/week/4', component: ReportComponent, pathMatch: 'full' },
-    // { path: 'reports/week/5', component: ReportComponent, pathMatch: 'full' },
-    // { path: 'reports/week/6', component: ReportComponent, pathMatch: 'full' },
-    // { path: 'reports/week/10', component: ReportComponent, pathMatch: 'full' },
-    // { path: 'reports/edit/:kmom', component: EditComponent, pathMatch: 'full' },
     { path: 'register', component: RegisterComponent, pathMatch: 'full' },
     { path: 'login', component: LoginComponent, pathMatch: 'full' },
     { path: 'logout', component: LogoutComponent, pathMatch: 'full' },
@@ -62,12 +49,8 @@ const appRoutes: Routes = [
     { path: 'edit', component: EditComponent, pathMatch: 'full' },
     { path: 'add', component: AddComponent, pathMatch: 'full' },
     { path: 'users', component: UsersComponent, pathMatch: 'full' },
-    { path: 'book', component: BookComponent, pathMatch: 'full' },
+    // { path: 'book', component: BookComponent, pathMatch: 'full' },
     { path: 'myequi', component: MyequiComponent, pathMatch: 'full' }
-    // { path: 'delete', component: DeleteComponent, pathMatch: 'full' }
-    // { path: 'chat', component: ChatComponent, pathMatch: 'full' },
-
-    // { path: '**', redirectTo: '/', pathMatch: 'full'},
 ];
 
 @NgModule({
@@ -79,10 +62,8 @@ const appRoutes: Routes = [
     AdminequiComponent,
     StudequiComponent,
     UsersComponent,
-    BookComponent,
-    UserComponent,
+    // BookComponent,
     MyequiComponent,
-    // DeleteComponent,
     EditComponent,
     AddComponent,
     HistoryComponent
@@ -97,16 +78,13 @@ const appRoutes: Routes = [
       AppRoutingModule,
       HttpClientModule,
       FormsModule,
-      // DemoMaterialModule,
       MatNativeDateModule,
       MatDatepickerModule,
       MatInputModule,
       MatDialogModule,
       MatFormFieldModule,
       MatSelectModule,
-      // MaterialModule,
       NgbModule,
-      // NgbModal,
       ReactiveFormsModule,
       CommonModule,
       BrowserAnimationsModule

@@ -26,7 +26,6 @@ export class AddComponent implements OnInit {
     loading = false;
     userRole: any;
     action = "Equipment created";
-    // form: any;
 
     constructor(
         private formBuilder: FormBuilder,

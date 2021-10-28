@@ -1,7 +1,6 @@
 import { Component, OnInit, Inject, Input } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { StudequiService } from './stud-equi.service';
 import { LoginService } from '../login/login.service';
 import { first } from "rxjs/operators";
 import { Router, ActivatedRoute } from '@angular/router';
@@ -14,7 +13,6 @@ import { Router, ActivatedRoute } from '@angular/router';
     templateUrl: './stud-equi.component.html',
     styleUrls: ['./stud-equi.component.css'],
     providers: [
-        StudequiService,
         LoginService,
         HttpParams
     ]
@@ -48,7 +46,6 @@ export class StudequiComponent implements OnInit {
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private router: Router,
-        private studequiService: StudequiService,
         private accountService: LoginService) {
             this.userRole = this.accountService.getUserRole();
             if (this.userRole != "student") {
@@ -65,13 +62,6 @@ export class StudequiComponent implements OnInit {
         this.bookForm = this.formBuilder.group({
             bookDate: ["", Validators.required]
         });
-        // this.studequiForm = this.formBuilder.group({
-        //     email: ["",
-        //         Validators.required,
-        //         Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")
-        //     ],
-        //     password: ["", Validators.required]
-        // });
     }
 
 
@@ -133,44 +123,10 @@ export class StudequiComponent implements OnInit {
                 this.loading = false;
             }
         });
-        // this.params = new HttpParams().set("email",user).set("id",equipment).set("rent_date",rent_date);
-        // this.http.get(this.BOOKINGS_URL, {params: this.params}).toPromise().then(data => {
-        //     this.data = data;
-        //     console.log("data: ", this.data);
-        //     this.bookings = this.data.data;
-        //     console.log("Bookings: ", this.bookings);
-        // });
     }
 
 
     get f() { return this.bookForm.controls; }
-
-    // openModal(content, email) {
-    //     console.log(email);
-    //     this.modalUser = email;
-    //     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-    //         if (result == 'Save click') {
-    //             console.log("SAVE!!");
-    //             console.log("New role: ", this.f.modalRole.value);
-    //             console.log(this.modalRole);
-    //         }
-    //         this.closeResult = `Closed with: ${result}`;
-    //         console.log(this.closeResult);
-    //     }, (reason) => {
-    //         this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    //         console.log(this.closeResult);
-    //     });
-    // }
-    //
-    // private getDismissReason(reason: any): string {
-    //     if (reason === ModalDismissReasons.ESC) {
-    //         return 'by pressing ESC';
-    //     } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-    //         return 'by clicking on a backdrop';
-    //     } else {
-    //         return `with: ${reason}`;
-    //     }
-    // }
 
     async onSubmit(id, name) {
         this.submitted = true;

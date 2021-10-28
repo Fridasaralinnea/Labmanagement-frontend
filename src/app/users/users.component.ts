@@ -2,8 +2,6 @@ import { Component, OnInit, Inject, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../login/login.service';
-// import { UsersService } from './users.service';
-// import { UserComponent } from '../user/user.component';
 import { first } from "rxjs/operators";
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -130,15 +128,6 @@ export class UsersComponent implements OnInit {
         }
     }
 
-    // openDialog(user_email) {
-    //     console.log("Email: ", user_email);
-    //     const dialogRef = this.dialog.open();
-    //
-    //     dialogRef.afterClosed().subscribe(result => {
-    //     console.log(`Dialog result: ${result}`);
-    //     });
-    // }
-
 
     onSubmit() {
         this.submitted = true;
@@ -154,21 +143,3 @@ export class UsersComponent implements OnInit {
 
     }
 }
-
-// @Component({
-//     selector: 'app-user',
-//     templateUrl: '../user/user.component.html',
-//     styleUrls: ['../user/user.component.css']
-// })
-//
-// export class UserComponent {
-//
-//     // constructor(
-//     //     public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
-//     //     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
-//     //
-//     //     onNoClick(): void {
-//     //         this.dialogRef.close();
-//     //     }
-//
-// }

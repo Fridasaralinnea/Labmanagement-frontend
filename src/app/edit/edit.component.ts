@@ -86,14 +86,6 @@ export class EditComponent implements OnInit, OnDestroy {
             ]
             // picture: ["", Validators.required]
         });
-        // this.infotext = this.kmom.info;
-        // console.log(this.infotext);
-        // this.editSubscription = this.editService.onReportUpdateEvent.subscribe(
-        //     (response) => {
-        //         console.log(response);
-        //         this.router.navigate(['reports', 'week', response]);
-        //     }
-        // );
     }
 
     get f() { return this.editForm.controls; }

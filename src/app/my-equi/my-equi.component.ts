@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MyequiService } from './my-equi.service';
 import { LoginService } from '../login/login.service';
 import { HistoryService } from '../history/history.service';
 import { first } from "rxjs/operators";
@@ -15,7 +14,6 @@ import { Subscription } from 'rxjs';
     templateUrl: './my-equi.component.html',
     styleUrls: ['./my-equi.component.css'],
     providers: [
-        MyequiService,
         HttpParams,
         LoginService,
         HistoryService
@@ -45,7 +43,6 @@ export class MyequiComponent implements OnInit {
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private router: Router,
-        private myequiService: MyequiService,
         private historyService: HistoryService,
         private accountService: LoginService) {
             this.userRole = this.accountService.getUserRole();
@@ -61,13 +58,6 @@ export class MyequiComponent implements OnInit {
         }
 
     ngOnInit() {
-        // this.myequiForm = this.formBuilder.group({
-        //     email: ["",
-        //         Validators.required,
-        //         Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")
-        //     ],
-        //     password: ["", Validators.required]
-        // });
     }
 
     async getBookings() {
@@ -159,16 +149,6 @@ export class MyequiComponent implements OnInit {
         }
     }
 
-    // getEquipment() {
-    //     this.http.get(this.ROOT_URL).toPromise().then(data => {
-    //         // console.log("data: ", data.data);
-    //         this.data = data;
-    //         console.log("data: ", data);
-    //         this.equipment = this.data.data;
-    //         console.log("Equipment: ", this.equipment);
-    //     });
-    // }
-
     get f() { return this.myequiForm.controls; }
 
     onSubmit() {
@@ -182,19 +162,5 @@ export class MyequiComponent implements OnInit {
         // console.log(this.f.password.value);
 
         this.loading = true;
-
-        this.myequiService.register(this.f.email.value, this.f.password.value)
-            .pipe(first())
-            .subscribe({
-                next: () => {
-                    console.log("Registration succesfull.")
-                    this.router.navigate(['/login'], { relativeTo: this.route});
-                },
-                error: error => {
-                    console.log("Registration not succesfull.");
-                    alert("Registration not succesfull");
-                    this.loading = false;
-                }
-            });
     }
 }

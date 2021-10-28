@@ -20,7 +20,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class HistoryComponent implements OnInit {
 
-    // historyForm: FormGroup;
     submitted = false;
     loading = false;
     id: any;
@@ -29,7 +28,6 @@ export class HistoryComponent implements OnInit {
     equipment: any;
     params: any;
     userRole: any;
-    // form: any;
 
     ROOT_URL = "http://localhost:8833/history";
 
@@ -69,37 +67,8 @@ export class HistoryComponent implements OnInit {
         }
 
     ngOnInit() {
-        // this.historyForm = this.formBuilder.group({
-        //     email: ["",
-        //         Validators.required,
-        //         Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")
-        //     ],
-        //     password: ["", Validators.required]
-        // });
     }
 
-    // get f() { return this.historyForm.controls; }
-
     onSubmit() {
-        this.submitted = true;
-
-        // console.log(this.f.email.value);
-        // console.log(this.f.password.value);
-
-        this.loading = true;
-        //
-        // this.accountService.register(this.f.email.value, this.f.password.value)
-        //     .pipe(first())
-        //     .subscribe({
-        //         next: () => {
-        //             console.log("Registration succesfull.")
-        //             this.router.navigate(['/login'], { relativeTo: this.route});
-        //         },
-        //         error: error => {
-        //             console.log("Registration not succesfull.");
-        //             alert("Registration not succesfull");
-        //             this.loading = false;
-        //         }
-        //     });
     }
 }
